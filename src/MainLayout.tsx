@@ -10,9 +10,14 @@ export function MainLayout({ children }: PropsWithChildren) {
       <NavBar />
       <Container
         className="position-fixed overflow-scroll p-0"
-        style={{ top: "86px", height: "calc(100vh - 85px)" }}
+        style={{ top: "86px", height: "calc(100vh - 85px)", width: '100%'}}
       >
-        <Container className="p-0">{children}</Container>
+        <Container
+          className="p-0"
+          style={{
+            minHeight: "calc(100% - 80px)"
+          }}
+        >{children}</Container>
         <Footer />
       </Container>
     </>

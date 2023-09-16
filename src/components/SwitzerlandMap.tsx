@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 
 import { Container, Image } from "react-bootstrap";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
@@ -7,8 +7,11 @@ import { QueryFn } from "utils/types";
 import { useQuery } from "react-query";
 import { OPEN_WEATHER_API_KEY } from "utils/constants";
 import { WeatherResponse } from "models/WeatherResponse";
+import { Link } from "react-router-dom";
 
-function buildGetResortWeatherQuery(resortName: ResortName): QueryFn<WeatherResponse> {
+function buildGetResortWeatherQuery(
+  resortName: ResortName
+): QueryFn<WeatherResponse> {
   const resort = RESORTS[resortName];
   const [latitude, longitude] = resort.position;
   return async () => {
@@ -22,7 +25,10 @@ function buildGetResortWeatherQuery(resortName: ResortName): QueryFn<WeatherResp
 
 function MapMarker({ resortName }: { resortName: ResortName }) {
   const { position, name, description } = RESORTS[resortName];
-  const getWeatherQuery = useMemo(() => buildGetResortWeatherQuery(resortName), [resortName]);
+  const getWeatherQuery = useMemo(
+    () => buildGetResortWeatherQuery(resortName),
+    [resortName]
+  );
 
   const { data, status } = useQuery(
     `resort-weather-query-${resortName}`,
@@ -36,6 +42,9 @@ function MapMarker({ resortName }: { resortName: ResortName }) {
           <Image height="20" src="/leaf.png" /> <b>{description}</b>
         </Container>
         <Container>Temp: {data?.main.temp}°C</Container>
+        <Container>
+          <Link to={`resorts/${resortName}`}>More info</Link>
+        </Container>
       </Popup>
     </Marker>
   );
