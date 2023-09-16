@@ -1,8 +1,45 @@
-import React from "react";
+import React, {useMemo} from "react";
 
-import { Image } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { RESORTS } from "data/resorts";
+import { ResortName, RESORTS } from "data/resorts";
+import { QueryFn } from "utils/types";
+import { useQuery } from "react-query";
+import { OPEN_WEATHER_API_KEY } from "utils/constants";
+import { WeatherResponse } from "models/WeatherResponse";
+
+function buildGetResortWeatherQuery(resortName: ResortName): QueryFn<WeatherResponse> {
+  const resort = RESORTS[resortName];
+  const [latitude, longitude] = resort.position;
+  return async () => {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${OPEN_WEATHER_API_KEY}&units=metric`
+    );
+    const data = await response.json();
+    return WeatherResponse.parse(data);
+  };
+}
+
+function MapMarker({ resortName }: { resortName: ResortName }) {
+  const { position, name, description } = RESORTS[resortName];
+  const getWeatherQuery = useMemo(() => buildGetResortWeatherQuery(resortName), [resortName]);
+
+  const { data, status } = useQuery(
+    `resort-weather-query-${resortName}`,
+    getWeatherQuery
+  );
+
+  return (
+    <Marker position={[...position]} alt={name}>
+      <Popup>
+        <Container>
+          <Image height="20" src="/leaf.png" /> <b>{description}</b>
+        </Container>
+        <Container>Temp: {data?.main.temp}°C</Container>
+      </Popup>
+    </Marker>
+  );
+}
 
 export function SwitzerlandMap() {
   return (
@@ -19,12 +56,8 @@ export function SwitzerlandMap() {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {Object.values(RESORTS).map(({ name, position, description }) => (
-        <Marker key={name} position={[...position]} alt={name}>
-          <Popup>
-            <Image height="20" src="/leaf.png" /> <b>{description}</b>
-          </Popup>
-        </Marker>
+      {Object.keys(RESORTS).map((resortName) => (
+        <MapMarker resortName={resortName as ResortName} />
       ))}
     </MapContainer>
   );
