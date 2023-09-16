@@ -4,6 +4,7 @@ import { Badge, Button, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { SwitzerlandMap } from "components/SwitzerlandMap";
 import { ArrowRight } from "react-bootstrap-icons";
+import { Sponsors } from "components/Sponsors";
 
 function SuccessBadge() {
   return (
@@ -91,6 +92,9 @@ export function Home() {
           </Button>
           <Container>{stateBadge}</Container>
         </Container>
+      </Container>
+      <Container className="p-lg-5">
+        <Sponsors />
       </Container>
     </>
   );
