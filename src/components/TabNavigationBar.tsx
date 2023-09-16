@@ -1,10 +1,12 @@
-import { NonEmptyArray } from "utils/types";
-import { useParams } from "react-router-dom";
 import React from "react";
+
+import { useParams } from "react-router-dom";
+
 import {
   NavigationTab,
   NavigationTabButton,
 } from "components/NavigationTabButton";
+import { NonEmptyArray } from "utils/types";
 
 export function TabNavigationBar({
   tabs,
@@ -31,7 +33,7 @@ export function TabNavigationBar({
         ))}
       </div>
       <div className="row">
-        {tabs.slice(3).map((tab, index) => (
+        {tabs.slice(3).map((tab) => (
           <NavigationTabButton
             key={tab.name}
             tab={tab}

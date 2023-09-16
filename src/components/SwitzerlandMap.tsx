@@ -2,8 +2,9 @@ import React from "react";
 
 import { Container, Image } from "react-bootstrap";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { ResortName, RESORTS } from "data/resorts";
 import { Link } from "react-router-dom";
+
+import { ResortName, RESORTS } from "data/resorts";
 import { useResortWeather } from "hooks/useResortWeather";
 
 function MapMarker({ resortName }: { resortName: ResortName }) {
@@ -41,7 +42,7 @@ export function SwitzerlandMap() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {Object.keys(RESORTS).map((resortName) => (
-        <MapMarker resortName={resortName as ResortName} />
+        <MapMarker key={resortName} resortName={resortName as ResortName} />
       ))}
     </MapContainer>
   );

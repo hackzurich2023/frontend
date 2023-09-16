@@ -1,9 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { useResortWeather } from "hooks/useResortWeather";
-import { ResortName, RESORTS } from "data/resorts";
-import { Container, Image } from "react-bootstrap";
-import { capitalize } from "utils/utils";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faCableCar,
   faPersonSkiing,
@@ -12,6 +8,12 @@ import {
   faSnowflake,
   faSnowman,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Container, Image } from "react-bootstrap";
+
+import { ResortName, RESORTS } from "data/resorts";
+import { useResortWeather } from "hooks/useResortWeather";
+import { capitalize } from "utils/utils";
 
 function ShadowedContainer({ children }: PropsWithChildren) {
   return (

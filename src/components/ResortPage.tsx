@@ -1,22 +1,23 @@
-import { MainLayout } from "MainLayout";
-import React, { FunctionComponent, ReactNode, useMemo } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { FunctionComponent, useMemo } from "react";
+
 import {
   faCalendar,
-  faCloudSun,
   faMap,
   faPersonHiking,
   faSnowflake,
   faTicket,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
-import { useParams, useRoutes } from "react-router-dom";
-import { ResortName, RESORTS } from "data/resorts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Container } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 import { NavigationTab } from "components/NavigationTabButton";
-import { DEFAULT_USER } from "data/user";
-import { Container } from "react-bootstrap";
+import { SkiPass } from "components/SkiPass";
 import { SnowReport } from "components/SnowReport";
+import { ResortName, RESORTS } from "data/resorts";
+import { DEFAULT_USER } from "data/user";
+import { MainLayout } from "MainLayout";
 
 const TABS: (Omit<NavigationTab, "routerTo"> & {
   content: FunctionComponent<{ resortName: ResortName }>;
@@ -31,7 +32,7 @@ const TABS: (Omit<NavigationTab, "routerTo"> & {
     id: "ski_pass",
     name: "Buy a Ski Pass",
     icon: <FontAwesomeIcon icon={faTicket} />,
-    content: () => <h1>Buy a Ski Pass</h1>,
+    content: SkiPass,
   },
   {
     id: "ski_map",

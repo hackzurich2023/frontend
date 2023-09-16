@@ -1,9 +1,11 @@
+import { useMemo } from "react";
+
+import { useQuery } from "react-query";
+
 import { ResortName, RESORTS } from "data/resorts";
-import { QueryFn } from "utils/types";
 import { WeatherResponse } from "models/WeatherResponse";
 import { OPEN_WEATHER_API_KEY } from "utils/constants";
-import { useMemo } from "react";
-import { useQuery } from "react-query";
+import { QueryFn } from "utils/types";
 
 function buildGetResortWeatherQuery(
   resortName: ResortName
@@ -25,7 +27,7 @@ export function useResortWeather(resortName: ResortName) {
     [resortName]
   );
 
-  const { data, status } = useQuery(
+  const { data } = useQuery(
     `resort-weather-query-${resortName}`,
     getWeatherQuery
   );

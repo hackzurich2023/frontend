@@ -1,11 +1,12 @@
 import React from "react";
 
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Container, Image, Nav, Navbar } from "react-bootstrap";
 import { ArrowRight } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
+
 import { User } from "data/user";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function MenuButton() {
   return (

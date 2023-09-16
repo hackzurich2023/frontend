@@ -1,12 +1,13 @@
 import React, { PropsWithChildren } from "react";
 
+import { Container } from "react-bootstrap";
+
 import { Footer } from "components/Footer";
 import { NavBar } from "components/NavBar";
-import { Container } from "react-bootstrap";
-import { isNonEmptyArray } from "utils/types";
-import { TabNavigationBar } from "components/TabNavigationBar";
 import { NavigationTab } from "components/NavigationTabButton";
+import { TabNavigationBar } from "components/TabNavigationBar";
 import { User } from "data/user";
+import { isNonEmptyArray } from "utils/types";
 
 interface Props {
   tabs?: NavigationTab[];
