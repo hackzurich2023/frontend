@@ -1,5 +1,4 @@
 import React from "react";
-import { Map } from "react-bootstrap-icons";
 import { MainLayout } from "MainLayout";
 
 export function AccountPage() {

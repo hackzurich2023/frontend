@@ -1,7 +1,5 @@
 import React, { ReactNode, useCallback, useMemo } from "react";
-import { NavBar } from "components/NavBar";
 import { Badge, Button, Container, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { SwitzerlandMap } from "components/SwitzerlandMap";
 import { ArrowRight } from "react-bootstrap-icons";
 import { Sponsors } from "components/Sponsors";
@@ -61,7 +59,6 @@ export function Home() {
 
   return (
     <MainLayout>
-      {/*<NavBar />*/}
       <Container className="px-lg-5">
         <Container className="p-4 p-lg-5 bg-light rounded-top-3">
           <Container className="text-center">
