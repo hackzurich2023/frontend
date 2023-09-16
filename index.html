@@ -87,9 +87,22 @@
 			<!-- Select your location -->
             <div id="map"></div>
             <style>
-              #map {
-                height: 600px;
-              }
+				#map {
+					height: 600px;
+				}
+				
+				.container {
+					position: relative;
+				}
+				
+				.sustainableNo {
+					position: absolute;
+					bottom: -5px;
+					left: 10px;
+					color: black;
+					padding-left: 20px;
+					padding-right: 20px;
+				}
             </style>
             <script>
               <!-- Set map location to Switzerland -->
@@ -102,57 +115,57 @@
                 { alt: "Villars" }
               )
                 .addTo(map)
-                .bindPopup("Villars - Gryon, Switzerland");
+                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Villars - Gryon, Switzerland</b>");
 
               // Marker "Laax"
               var marker2 = L.marker([46.8423, 9.1803], { alt: "Laax" })
                 .addTo(map)
-                .bindPopup("Laax, Switzerland");
+                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Laax, Switzerland</b>");
 
               // Marker "Davos"
               var marker3 = L.marker([46.7650752, 9.6529485], { alt: "Davos" })
                 .addTo(map)
-                .bindPopup("Davos, Switzerland");
+                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Davos, Switzerland</b>");
 
               // Marker "Pizol"
               var marker4 = L.marker([46.9591136, 9.3764688], { alt: "Pizol" })
                 .addTo(map)
-                .bindPopup("Pizol, Switzerland");
+                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Pizol, Switzerland</b>");
 
               // Marker "Jungfrau - Mürren - Schilthorn"
               var marker5 = L.marker([46.5617746, 7.8515155], {
                 alt: "Jungfrau",
               })
                 .addTo(map)
-                .bindPopup("Jungfrau - Mürren - Schilthorn, Switzerland");
+                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Jungfrau - Mürren - Schilthorn, Switzerland</b>");
 
               // Marker "Andermatt"
               var marker6 = L.marker([46.6206784, 8.5316637], {
                 alt: "Andermatt",
               })
                 .addTo(map)
-                .bindPopup("Andermatt, Switzerland");
+                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Andermatt, Switzerland</b>");
 
               // Marker "Engelberg"
               var marker7 = L.marker([46.8190919, 8.351527], {
                 alt: "Engelberg",
               })
                 .addTo(map)
-                .bindPopup("Engelberg, Switzerland");
+                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Engelberg, Switzerland</b>");
 
               // Marker "St. Moritz - Corviglia"
               var marker8 = L.marker([46.4862079, 9.7656765], {
                 alt: "St. Moritz",
               })
                 .addTo(map)
-                .bindPopup("St. Moritz - Corviglia, Switzerland");
+                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>St. Moritz - Corviglia, Switzerland</b>");
 
               // Marker "Zermatt"
               var marker9 = L.marker([45.9903283, 7.4303578], {
                 alt: "Zermatt",
               })
                 .addTo(map)
-                .bindPopup("Zermatt, Switzerland");
+                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Zermatt, Switzerland</b>");
 
               <!-- Activate embedded OpenStreetMap tiles -->
               const tiles = L.tileLayer(
