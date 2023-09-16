@@ -28,18 +28,18 @@ function NavigationTabButton({
     <div
       className="d-flex flex-grow-1 justify-content-around align-items-center"
       style={{
-        height: "80px",
+        height: "65px",
       }}
     >
       <Link
         to={tab.routerTo}
-        className="d-flex flex-grow-1 flex-column align-items-center justify-content-center text-black"
+        className="d-flex flex-grow-1 flex-column align-items-center justify-content-center"
         style={{
-          borderColor: isActive ? "#000" : "transparent",
-          borderBottomWidth: "5px",
-          borderBottomStyle: "solid",
           height: "100%",
           textDecoration: "none",
+          color: isActive ? "#fff" : "#000",
+          backgroundColor: isActive ? "#000" : "transparent",
+          borderRadius: '4px'
         }}
       >
         {tab.icon}
@@ -56,12 +56,21 @@ function TabNavigationBar({ tabs }: { tabs: NonEmptyArray<NavigationTab> }) {
     <div
       className="bg-body position-fixed w-100 z-2 bottom-0"
       style={{
-        height: "80px",
+        height: "130px",
         borderTop: "2px solid #e0e0e0",
       }}
     >
       <div className="d-flex">
-        {tabs.map((tab, index) => (
+        {tabs.slice(0, 3).map((tab, index) => (
+          <NavigationTabButton
+            key={tab.name}
+            tab={tab}
+            isActive={(!section && index === 0) || tab.id === section}
+          />
+        ))}
+      </div>
+      <div className="d-flex">
+        {tabs.slice(3).map((tab, index) => (
           <NavigationTabButton
             key={tab.name}
             tab={tab}
