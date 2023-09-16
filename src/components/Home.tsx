@@ -16,7 +16,7 @@ export function Home() {
               Your sustainable one stop access to your favourite ski resorts
             </p>
 
-            <p>Date: <input type="date" /></p>
+            <p>Select your preferred date: <input type="date" /></p>
           </Container>
         </Container>
       </Container>
