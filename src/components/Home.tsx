@@ -61,7 +61,7 @@ export function Home() {
 
   return (
     <MainLayout>
-      <Container className="px-lg-5">
+      <Container className="p-4 pb-0">
         <Container className="p-4 p-lg-5 bg-light rounded-top-3">
           <Container className="text-center">
             <Image width="100%" src="/skiapp-transparent.png" />
@@ -80,7 +80,7 @@ export function Home() {
 
       <SwitzerlandMap />
 
-      <Container className="px-lg-5">
+      <Container className="px-4">
         <Container className="p-4 p-lg-5 bg-light rounded-bottom-3 text-center">
           <Button
             variant="primary"
