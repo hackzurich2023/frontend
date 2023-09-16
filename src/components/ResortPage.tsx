@@ -1,9 +1,11 @@
-import { MainLayout, NavigationTab } from "MainLayout";
+import { MainLayout } from "MainLayout";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudSun } from "@fortawesome/free-solid-svg-icons";
 import { useParams, useRoutes } from "react-router-dom";
 import { ResortName } from "data/resorts";
+
+import { NavigationTab } from "components/NavigationTabButton";
 
 const TABS: Omit<NavigationTab, "routerTo">[] = [
   {

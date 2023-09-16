@@ -1,85 +1,14 @@
-import React, { PropsWithChildren, ReactNode } from "react";
+import React, { PropsWithChildren } from "react";
 
 import { Footer } from "components/Footer";
 import { NavBar } from "components/NavBar";
 import { Container } from "react-bootstrap";
-import { isNonEmptyArray, NonEmptyArray } from "utils/types";
-import { Link, useParams } from "react-router-dom";
-
-export interface NavigationTab {
-  id: string;
-  name: string;
-  icon: ReactNode;
-  routerTo: string;
-}
+import { isNonEmptyArray } from "utils/types";
+import { TabNavigationBar } from "components/TabNavigationBar";
+import { NavigationTab } from "components/NavigationTabButton";
 
 interface Props {
   tabs?: NavigationTab[];
-}
-
-function NavigationTabButton({
-  tab,
-  isActive,
-}: {
-  tab: NavigationTab;
-  isActive: boolean;
-}) {
-  return (
-    <div
-      className="d-flex flex-grow-1 justify-content-around align-items-center"
-      style={{
-        height: "65px",
-      }}
-    >
-      <Link
-        to={tab.routerTo}
-        className="d-flex flex-grow-1 flex-column align-items-center justify-content-center"
-        style={{
-          height: "100%",
-          textDecoration: "none",
-          color: isActive ? "#fff" : "#000",
-          backgroundColor: isActive ? "#000" : "transparent",
-          borderRadius: '4px'
-        }}
-      >
-        {tab.icon}
-        <span className="mb-0 fs-6">{tab.name}</span>
-      </Link>
-    </div>
-  );
-}
-
-function TabNavigationBar({ tabs }: { tabs: NonEmptyArray<NavigationTab> }) {
-  const { section } = useParams();
-
-  return (
-    <div
-      className="bg-body position-fixed w-100 z-2 bottom-0"
-      style={{
-        height: "130px",
-        borderTop: "2px solid #e0e0e0",
-      }}
-    >
-      <div className="d-flex">
-        {tabs.slice(0, 3).map((tab, index) => (
-          <NavigationTabButton
-            key={tab.name}
-            tab={tab}
-            isActive={(!section && index === 0) || tab.id === section}
-          />
-        ))}
-      </div>
-      <div className="d-flex">
-        {tabs.slice(3).map((tab, index) => (
-          <NavigationTabButton
-            key={tab.name}
-            tab={tab}
-            isActive={(!section && index === 0) || tab.id === section}
-          />
-        ))}
-      </div>
-    </div>
-  );
 }
 
 export function MainLayout({ children, tabs }: PropsWithChildren<Props>) {
