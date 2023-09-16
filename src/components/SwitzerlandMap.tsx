@@ -1,39 +1,14 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import { Container, Image } from "react-bootstrap";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { ResortName, RESORTS } from "data/resorts";
-import { QueryFn } from "utils/types";
-import { useQuery } from "react-query";
-import { OPEN_WEATHER_API_KEY } from "utils/constants";
-import { WeatherResponse } from "models/WeatherResponse";
 import { Link } from "react-router-dom";
-
-function buildGetResortWeatherQuery(
-  resortName: ResortName
-): QueryFn<WeatherResponse> {
-  const resort = RESORTS[resortName];
-  const [latitude, longitude] = resort.position;
-  return async () => {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${OPEN_WEATHER_API_KEY}&units=metric`
-    );
-    const data = await response.json();
-    return WeatherResponse.parse(data);
-  };
-}
+import { useResortWeather } from "hooks/useResortWeather";
 
 function MapMarker({ resortName }: { resortName: ResortName }) {
   const { position, name, description } = RESORTS[resortName];
-  const getWeatherQuery = useMemo(
-    () => buildGetResortWeatherQuery(resortName),
-    [resortName]
-  );
-
-  const { data, status } = useQuery(
-    `resort-weather-query-${resortName}`,
-    getWeatherQuery
-  );
+  const weatherData = useResortWeather(resortName);
 
   return (
     <Marker position={[...position]} alt={name}>
@@ -41,7 +16,7 @@ function MapMarker({ resortName }: { resortName: ResortName }) {
         <Container>
           <Image height="20" src="/leaf.png" /> <b>{description}</b>
         </Container>
-        <Container>Temp: {data?.main.temp}°C</Container>
+        <Container>Temp: {weatherData?.main.temp}°C</Container>
         <Container>
           <Link to={`resorts/${resortName}`}>More info</Link>
         </Container>
