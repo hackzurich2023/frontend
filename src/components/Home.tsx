@@ -1,8 +1,10 @@
-import React, { ReactNode, useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
+
 import { Badge, Button, Container, Image } from "react-bootstrap";
-import { SwitzerlandMap } from "components/SwitzerlandMap";
 import { ArrowRight } from "react-bootstrap-icons";
+
 import { Sponsors } from "components/Sponsors";
+import { SwitzerlandMap } from "components/SwitzerlandMap";
 import { MainLayout } from "MainLayout";
 
 function SuccessBadge() {
@@ -30,7 +32,7 @@ function PendingBadge() {
 }
 
 export function Home() {
-  const [buttonState, setButtonState] = React.useState<
+  const [buttonState, setButtonState] = useState<
     "success" | "failed" | "pending" | null
   >(null);
 
@@ -44,7 +46,7 @@ export function Home() {
     } else if (buttonState === "pending") setButtonState(null);
   }, [buttonState]);
 
-  let stateBadge = useMemo(() => {
+  const stateBadge = useMemo(() => {
     if (buttonState === "success") {
       return <SuccessBadge />;
     }

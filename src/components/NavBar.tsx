@@ -1,7 +1,8 @@
-import { Container, Image, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "react-bootstrap-icons";
 import React from "react";
+
+import { Container, Image, Nav, Navbar } from "react-bootstrap";
+import { ArrowRight } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 export function NavBar() {
   return (

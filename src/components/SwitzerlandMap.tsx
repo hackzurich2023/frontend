@@ -1,6 +1,7 @@
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import React from "react";
+
 import { Image } from "react-bootstrap";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 const MARKERS = {
   Villars: {
