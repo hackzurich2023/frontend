@@ -1,42 +1,51 @@
 import { MainLayout } from "MainLayout";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudSun } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendar,
+  faCloudSun,
+  faMap,
+  faPersonHiking,
+  faSnowflake,
+  faTicket,
+  faUtensils,
+} from "@fortawesome/free-solid-svg-icons";
 import { useParams, useRoutes } from "react-router-dom";
 import { ResortName } from "data/resorts";
 
 import { NavigationTab } from "components/NavigationTabButton";
+import { DEFAULT_USER } from "data/user";
 
 const TABS: Omit<NavigationTab, "routerTo">[] = [
   {
-    id: "weather",
-    name: "Weather",
-    icon: <FontAwesomeIcon icon={faCloudSun} />,
+    id: "snow_reports",
+    name: "Snow Report",
+    icon: <FontAwesomeIcon icon={faSnowflake} />,
   },
   {
-    id: "weather1",
-    name: "Weather1",
-    icon: <FontAwesomeIcon icon={faCloudSun} />,
+    id: "ski_pass",
+    name: "Buy a Ski Pass",
+    icon: <FontAwesomeIcon icon={faTicket} />,
   },
   {
-    id: "weather2",
-    name: "Weather2",
-    icon: <FontAwesomeIcon icon={faCloudSun} />,
+    id: "ski_map",
+    name: "Ski Map",
+    icon: <FontAwesomeIcon icon={faMap} />,
   },
   {
-    id: "weather3",
-    name: "Weather3",
-    icon: <FontAwesomeIcon icon={faCloudSun} />,
+    id: "rental",
+    name: "Rental",
+    icon: <FontAwesomeIcon icon={faPersonHiking} />,
   },
   {
-    id: "weather4",
-    name: "Weather4",
-    icon: <FontAwesomeIcon icon={faCloudSun} />,
+    id: "events",
+    name: "Events",
+    icon: <FontAwesomeIcon icon={faCalendar} />,
   },
   {
-    id: "weather5",
-    name: "Weather5",
-    icon: <FontAwesomeIcon icon={faCloudSun} />,
+    id: "food_and_drinks",
+    name: "Food & Drinks",
+    icon: <FontAwesomeIcon icon={faUtensils} />,
   },
 ];
 
@@ -52,7 +61,7 @@ export function ResortPage() {
   const resortTabs = useResortTabs(resortName as ResortName);
 
   return (
-    <MainLayout tabs={resortTabs}>
+    <MainLayout tabs={resortTabs} currentUser={DEFAULT_USER}>
       <h1>Resort Page</h1>
     </MainLayout>
   );

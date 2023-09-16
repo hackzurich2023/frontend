@@ -6,15 +6,21 @@ import { Container } from "react-bootstrap";
 import { isNonEmptyArray } from "utils/types";
 import { TabNavigationBar } from "components/TabNavigationBar";
 import { NavigationTab } from "components/NavigationTabButton";
+import { User } from "data/user";
 
 interface Props {
   tabs?: NavigationTab[];
+  currentUser?: User;
 }
 
-export function MainLayout({ children, tabs }: PropsWithChildren<Props>) {
+export function MainLayout({
+  children,
+  tabs,
+  currentUser,
+}: PropsWithChildren<Props>) {
   return (
     <>
-      <NavBar />
+      <NavBar currentUser={currentUser} />
       <Container
         className="position-fixed overflow-scroll p-0"
         style={{ top: "86px", height: "calc(100vh - 85px)", width: "100%" }}

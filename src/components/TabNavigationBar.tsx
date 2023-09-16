@@ -1,7 +1,10 @@
 import { NonEmptyArray } from "utils/types";
 import { useParams } from "react-router-dom";
 import React from "react";
-import { NavigationTab, NavigationTabButton } from "components/NavigationTabButton";
+import {
+  NavigationTab,
+  NavigationTabButton,
+} from "components/NavigationTabButton";
 
 export function TabNavigationBar({
   tabs,
@@ -18,7 +21,7 @@ export function TabNavigationBar({
         borderTop: "2px solid #e0e0e0",
       }}
     >
-      <div className="d-flex">
+      <div className="row">
         {tabs.slice(0, 3).map((tab, index) => (
           <NavigationTabButton
             key={tab.name}
@@ -27,12 +30,12 @@ export function TabNavigationBar({
           />
         ))}
       </div>
-      <div className="d-flex">
+      <div className="row">
         {tabs.slice(3).map((tab, index) => (
           <NavigationTabButton
             key={tab.name}
             tab={tab}
-            isActive={(!section && index === 0) || tab.id === section}
+            isActive={tab.id === section}
           />
         ))}
       </div>

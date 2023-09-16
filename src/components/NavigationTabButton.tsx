@@ -17,9 +17,10 @@ export function NavigationTabButton({
 }) {
   return (
     <div
-      className="d-flex flex-grow-1 justify-content-around align-items-center"
+      className="col-1 d-flex flex-grow-1 justify-content-around align-items-center"
       style={{
         height: "65px",
+        padding: "0",
       }}
     >
       <Link
