@@ -39,116 +39,88 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
-    <!-- Header -->
-    <header class="py-5">
+
+
+    <!-- Page Content-->
+    <section class="pt-4">
       <div class="container px-lg-5">
-        <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-          <div class="m-4 m-lg-5">
-            <!-- Select your location -->
-            <div id="map"></div>
-            <style>
-				#map {
-					height: 600px;
-				}
-            </style>
-            <script>
-              <!-- Set map location to Switzerland -->
-              const map = L.map("map").setView([46.822, 8.224], 8);
-
-              <!-- Add markers -->
-              var marker1 = L.marker(
-                [46.3036593, 7.052355],
-                // Marker "Villars - Gryon"
-                { alt: "Villars" }
-              )
-                .addTo(map)
-                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Villars - Gryon, Switzerland</b>");
-
-              // Marker "Laax"
-              var marker2 = L.marker([46.8423, 9.1803], { alt: "Laax" })
-                .addTo(map)
-                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Laax, Switzerland</b>");
-
-              // Marker "Davos"
-              var marker3 = L.marker([46.7650752, 9.6529485], { alt: "Davos" })
-                .addTo(map)
-                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Davos, Switzerland</b>");
-
-              // Marker "Pizol"
-              var marker4 = L.marker([46.9591136, 9.3764688], { alt: "Pizol" })
-                .addTo(map)
-                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Pizol, Switzerland</b>");
-
-              // Marker "Jungfrau - Mürren - Schilthorn"
-              var marker5 = L.marker([46.5617746, 7.8515155], {
-                alt: "Jungfrau",
-              })
-                .addTo(map)
-                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Jungfrau - Mürren - Schilthorn, Switzerland</b>");
-
-              // Marker "Andermatt"
-              var marker6 = L.marker([46.6206784, 8.5316637], {
-                alt: "Andermatt",
-              })
-                .addTo(map)
-                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Andermatt, Switzerland</b>");
-
-              // Marker "Engelberg"
-              var marker7 = L.marker([46.8190919, 8.351527], {
-                alt: "Engelberg",
-              })
-                .addTo(map)
-                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Engelberg, Switzerland</b>");
-
-              // Marker "St. Moritz - Corviglia"
-              var marker8 = L.marker([46.4862079, 9.7656765], {
-                alt: "St. Moritz",
-              })
-                .addTo(map)
-                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>St. Moritz - Corviglia, Switzerland</b>");
-
-              // Marker "Zermatt"
-              var marker9 = L.marker([45.9903283, 7.4303578], {
-                alt: "Zermatt",
-              })
-                .addTo(map)
-                .bindPopup("<img height='20' src='assets/leaf.png'/> <b>Zermatt, Switzerland</b>");
-
-              <!-- Activate embedded OpenStreetMap tiles -->
-              const tiles = L.tileLayer(
-                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {
-                  maxZoom: 19,
-                  attribution:
-                    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-                }
-              ).addTo(map);
-            </script>
-            <br />
-            <br />
-            <hr />
-            <br />
-            <br />
-            <a class="btn btn-primary btn-lg rounded-pill" href="login.html"
-              >Book reservation <i class="bi bi-arrow-right"></i
-            ></a>
-			<!-- Check reservation status: Did booking succeeded? -->
-			<script>
-			function onButtonClick(){
-			  document.getElementById('status').className="show";
-			}
-			</script>
-			<div id="status" class="hide">
-				<span class="badge bg-success-subtle border border-success-subtle text-success-emphasis rounded-pill">&#10084; Success</span>
-				<!-- DEACTIVATED:
-				<span class="badge bg-danger-subtle border border-danger-subtle text-danger-emphasis rounded-pill">&#x26A0; Failed</span>
-				<span class="badge bg-warning-subtle border border-warning-subtle text-warning-emphasis rounded-pill">⏳ Pending</span>
-				-->
-			</div>
+        <!-- Page Features-->
+        <div class="row gx-lg-5">
+          <div class="col-lg-6 col-xxl-4 mb-5">
+            <div class="card bg-light border-0 h-100">
+              <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                <div
+                  class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
+                >
+                  <i class="bi bi-collection"></i>
+                </div>
+                <h2 class="fs-4 fw-bold">Buy a SkiPass</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xxl-4 mb-5">
+            <div class="card bg-light border-0 h-100">
+              <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                <div
+                  class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
+                >
+                  <i class="bi bi-cloud-sun-fill"></i>
+                </div>
+                <h2 class="fs-4 fw-bold">Live Weather Update</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xxl-4 mb-5">
+            <div class="card bg-light border-0 h-100">
+              <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                <div
+                  class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
+                >
+                  <i class="bi bi-map"></i>
+                </div>
+                <h2 class="fs-4 fw-bold">Interactive Ski Map</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xxl-4 mb-5">
+            <div class="card bg-light border-0 h-100">
+              <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                <div
+                  class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
+                >
+                  <i class="bi bi-stars"></i>
+                </div>
+                <h2 class="fs-4 fw-bold">Events</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xxl-4 mb-5">
+            <div class="card bg-light border-0 h-100">
+              <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                <div
+                  class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
+                >
+                  <i class="bi bi-house"></i>
+                </div>
+                <h2 class="fs-4 fw-bold">Rental</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xxl-4 mb-5">
+            <div class="card bg-light border-0 h-100">
+              <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                <div
+                  class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
+                >
+                  <i class="bi bi-cart-plus-fill"></i>
+                </div>
+                <h2 class="fs-4 fw-bold">Food and drinks</h2>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </header>
+    </section>
 	
 	<hr />
 	
