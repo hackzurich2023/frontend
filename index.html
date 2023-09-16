@@ -12,7 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-		
+
 		<!-- Leaflet -->
 		 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -23,6 +23,8 @@
      crossorigin=""></script>
     </head>
     <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-lg-5">
@@ -50,44 +52,44 @@
 						<script>
 							<!-- Set map location to Switzerland -->
 							const map = L.map('map').setView([46.822, 8.224], 8);
-							
+
 							<!-- Add markers -->
 							var marker1 = L.marker([46.3036593, 7.052355],
 							// Marker "Villars - Gryon"
 							{alt: 'Villars'}).addTo(map).bindPopup('Villars - Gryon, Switzerland');
-							
+
 							// Marker "Laax"
 							var marker2 = L.marker([46.8423, 9.1803],
 							{alt: 'Laax'}).addTo(map).bindPopup('Laax, Switzerland');
-							
+
 							// Marker "Davos"
 							var marker3 = L.marker([46.7650752, 9.6529485],
 							{alt: 'Davos'}).addTo(map).bindPopup('Davos, Switzerland');
-							
+
 							// Marker "Pizol"
 							var marker4 = L.marker([46.9591136, 9.3764688],
 							{alt: 'Pizol'}).addTo(map).bindPopup('Pizol, Switzerland');
-							
+
 							// Marker "Jungfrau - Mürren - Schilthorn"
 							var marker5 = L.marker([46.5617746,7.8515155],
 							{alt: 'Jungfrau'}).addTo(map).bindPopup('Jungfrau - Mürren - Schilthorn, Switzerland');
-							
+
 							// Marker "Andermatt"
 							var marker6 = L.marker([46.6206784,8.5316637],
 							{alt: 'Andermatt'}).addTo(map).bindPopup('Andermatt, Switzerland');
-							
+
 							// Marker "Engelberg"
 							var marker7 = L.marker([46.8190919, 8.351527],
 							{alt: 'Engelberg'}).addTo(map).bindPopup('Engelberg, Switzerland');
-							
+
 							// Marker "St. Moritz - Corviglia"
 							var marker8 = L.marker([46.4862079, 9.7656765],
 							{alt: 'St. Moritz'}).addTo(map).bindPopup('St. Moritz - Corviglia, Switzerland');
-							
+
 							// Marker "Zermatt"
 							var marker9 = L.marker([45.9903283, 7.4303578],
 							{alt: 'Zermatt'}).addTo(map).bindPopup('Zermatt, Switzerland');
-							
+
 							<!-- Activate embedded OpenStreetMap tiles -->
 							const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 								maxZoom: 19,
