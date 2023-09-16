@@ -31,7 +31,7 @@ export function NavigationTabButton({
           height: "100%",
           textDecoration: "none",
           color: isActive ? "#fff" : "#000",
-          backgroundColor: isActive ? "#000" : "transparent",
+          backgroundColor: isActive ? "#0074B2" : "transparent",
           borderRadius: "4px",
         }}
       >

@@ -26,7 +26,7 @@ function MenuButton() {
 
 function UserAvatar({ user }: { user: User }) {
   return (
-    <div className="text-white">
+    <div>
       <FontAwesomeIcon icon={faUser} /> {user.userName}
     </div>
   );
@@ -36,7 +36,7 @@ export function NavBar({ currentUser }: { currentUser?: User }) {
   return (
     <Navbar
       expand="lg"
-      className="bg-dark navbar-dark position-fixed w-100 z-1"
+      className="bg-light navbar-light position-fixed w-100 z-1"
     >
       <Container className="top-0">
         <Navbar.Brand as={Link} to="/">
