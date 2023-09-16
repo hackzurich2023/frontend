@@ -9,7 +9,6 @@ import {
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 import { NavigationTab } from "components/NavigationTabButton";

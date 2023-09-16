@@ -21,17 +21,21 @@ export function MainLayout({
   currentUser,
   withFooter = true,
 }: PropsWithChildren<Props>) {
-  const verticalSpaceTaken = 86 + (tabs && isNonEmptyArray(tabs) ? 130 : 0);;
+  const verticalSpaceTaken = 86 + (tabs && isNonEmptyArray(tabs) ? 130 : 0);
   return (
     <>
       <NavBar currentUser={currentUser} />
       <Container
         className="position-fixed overflow-scroll p-0"
-        style={{ top: "86px", height: `calc(100vh - ${verticalSpaceTaken}px)`, width: "100%" }}
+        style={{
+          top: "86px",
+          height: `calc(100vh - ${verticalSpaceTaken}px)`,
+          width: "100%",
+        }}
       >
         <div className="p-0 h-100">
           {children}
-          { withFooter ? <Footer /> : null }
+          {withFooter ? <Footer /> : null}
         </div>
       </Container>
       {tabs && isNonEmptyArray(tabs) ? <TabNavigationBar tabs={tabs} /> : null}
