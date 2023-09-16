@@ -38,7 +38,7 @@ export function SnowReport({ resortName }: { resortName: ResortName }) {
   console.log(weatherData);
 
   return (
-    <div className="d-flex flex-column gap-4">
+    <div className="d-flex flex-column gap-4 pb-4">
       <Container className="row">
         <ShadowedContainer>
           <Container className="pt-2">
@@ -68,7 +68,7 @@ export function SnowReport({ resortName }: { resortName: ResortName }) {
           </div>
         </ShadowedContainer>
         <ShadowedContainer>
-          <div className="d-flex gap-3 align-items-center">
+          <div className="d-flex gap-3 align-items-center flex-md-wrap">
             <FontAwesomeIcon icon={faCableCar} size="2xl" />
             <div className="d-flex flex-column">
               <span className="fs-5">Lifts</span>

@@ -24,9 +24,9 @@ export function Sponsors() {
                 {SPONSORS_IMG.map((sponsorImg) => (
                   <Container
                     key={sponsorImg}
-                    className={"col-lg-6 col-xxl-4 mb-5"}
+                    className={"col-lg-6 col-xxl-4 mb-4"}
                   >
-                    <Image height="60" src={sponsorImg} />
+                    <Image width="50%" src={sponsorImg} />
                   </Container>
                 ))}
               </div>

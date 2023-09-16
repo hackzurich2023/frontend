@@ -12,29 +12,27 @@ import { isNonEmptyArray } from "utils/types";
 interface Props {
   tabs?: NavigationTab[];
   currentUser?: User;
+  withFooter?: boolean;
 }
 
 export function MainLayout({
   children,
   tabs,
   currentUser,
+  withFooter = true,
 }: PropsWithChildren<Props>) {
+  const verticalSpaceTaken = 86 + (tabs && isNonEmptyArray(tabs) ? 130 : 0);;
   return (
     <>
       <NavBar currentUser={currentUser} />
       <Container
         className="position-fixed overflow-scroll p-0"
-        style={{ top: "86px", height: "calc(100vh - 85px)", width: "100%" }}
+        style={{ top: "86px", height: `calc(100vh - ${verticalSpaceTaken}px)`, width: "100%" }}
       >
-        <Container
-          className="p-0"
-          style={{
-            minHeight: "calc(100% - 80px)",
-          }}
-        >
+        <div className="p-0 h-100">
           {children}
-        </Container>
-        <Footer />
+          { withFooter ? <Footer /> : null }
+        </div>
       </Container>
       {tabs && isNonEmptyArray(tabs) ? <TabNavigationBar tabs={tabs} /> : null}
     </>

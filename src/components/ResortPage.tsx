@@ -83,12 +83,12 @@ export function ResortPage() {
   );
 
   return (
-    <MainLayout tabs={resortTabs} currentUser={DEFAULT_USER}>
-      <Container className="p-4">
+    <MainLayout tabs={resortTabs} currentUser={DEFAULT_USER} withFooter={false}>
+      <div className="d-flex p-4 flex-column h-100">
         {isResortName(resortName) && (
           <ContentComponent resortName={resortName} />
         )}
-      </Container>
+      </div>
     </MainLayout>
   );
 }

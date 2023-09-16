@@ -12,7 +12,7 @@ export function SkiPass({ resortName }: { resortName: ResortName }) {
   return (
     <div
       className="d-flex flex-column align-items-center justify-content-between"
-      style={{ paddingTop: "50px", gap: "50px" }}
+      style={{ paddingTop: "10px", gap: "50px", minHeight: "100%" }}
     >
       <div>
         <h1 className="text-center">
@@ -21,7 +21,7 @@ export function SkiPass({ resortName }: { resortName: ResortName }) {
         <h1 className="text-center">72 CHF</h1>
         <Image src="/mountain.png" width="100%" />
       </div>
-      <div style={{ width: "100%", marginTop: "150px" }}>
+      <div style={{ width: "100%" }}>
         <SlideButton
           mainText="Swipe to buy the ski pass"
           overlayText="Your Ski Pass is active, enjoy the slopes!"
