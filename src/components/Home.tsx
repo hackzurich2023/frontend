@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { SwitzerlandMap } from "components/SwitzerlandMap";
 import { ArrowRight } from "react-bootstrap-icons";
 import { Sponsors } from "components/Sponsors";
+import { MainLayout } from "MainLayout";
 
 function SuccessBadge() {
   return (
@@ -59,8 +60,8 @@ export function Home() {
   }, [buttonState]);
 
   return (
-    <>
-      <NavBar />
+    <MainLayout>
+      {/*<NavBar />*/}
       <Container className="px-lg-5">
         <Container className="p-4 p-lg-5 bg-light rounded-top-3">
           <Container className="text-center">
@@ -96,6 +97,6 @@ export function Home() {
       <Container className="p-lg-5">
         <Sponsors />
       </Container>
-    </>
+    </MainLayout>
   );
 }
