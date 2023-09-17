@@ -11,7 +11,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useParams } from "react-router-dom";
 
+import { ComingSoon } from "components/ComingSoon";
 import { NavigationTab } from "components/NavigationTabButton";
+import { SkiMapPage } from "components/SkiMapPage";
 import { SkiPass } from "components/SkiPass";
 import { SnowReport } from "components/SnowReport";
 import { ResortName, RESORTS } from "data/resorts";
@@ -37,25 +39,25 @@ const TABS: (Omit<NavigationTab, "routerTo"> & {
     id: "ski_map",
     name: "Ski Map",
     icon: <FontAwesomeIcon icon={faMap} />,
-    content: () => <h1>Ski Map</h1>,
+    content: SkiMapPage,
   },
   {
     id: "rental",
     name: "Rental",
     icon: <FontAwesomeIcon icon={faPersonHiking} />,
-    content: () => <h1>Rental</h1>,
+    content: () => <ComingSoon title="Rental" />,
   },
   {
     id: "events",
     name: "Events",
     icon: <FontAwesomeIcon icon={faCalendar} />,
-    content: () => <h1>Events</h1>,
+    content: () => <ComingSoon title="Events" />,
   },
   {
     id: "food_and_drinks",
     name: "Food & Drinks",
     icon: <FontAwesomeIcon icon={faUtensils} />,
-    content: () => <h1>Food & Drinks</h1>,
+    content: () => <ComingSoon title="Food & Drinks" />,
   },
 ];
 

@@ -23,9 +23,7 @@ export function Home() {
               Select your preferred date: <input type="date" />
             </p>
             {/*<br/>*/}
-            <span>
-              Select your favorite resort:
-            </span>
+            <span>Select your favorite resort:</span>
           </Container>
         </Container>
       </Container>
