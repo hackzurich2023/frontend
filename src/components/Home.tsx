@@ -10,7 +10,7 @@ export function Home() {
   return (
     <MainLayout>
       <Container className="p-4 pb-0">
-        <Container className="p-4 p-lg-5 bg-light rounded-top-3">
+        <Container className="p-4 pb-2 bg-light rounded-top-3">
           <Container className="text-center">
             <Image width="100%" src="/skiapp-transparent.png" />
           </Container>
@@ -22,6 +22,10 @@ export function Home() {
             <p>
               Select your preferred date: <input type="date" />
             </p>
+            {/*<br/>*/}
+            <span>
+              Select your favorite resort:
+            </span>
           </Container>
         </Container>
       </Container>
